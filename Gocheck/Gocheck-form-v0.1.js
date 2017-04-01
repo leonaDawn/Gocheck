@@ -7,13 +7,13 @@ function Gocheck(arg) {
     this.elemId = arg.el;
     if(this.elemId==undefined) {
         throw new Error("'elemId' is not defined");
-    }
+    };
 
     //传入弹出错误信息窗口
     this.err = arg.popError;
     if(this.err==undefined) {
         throw new Error("'popError' is not defined");
-    }
+    };
 
     //定义执行对应检测的input属性名，默认为inCheck
     this.definAttr = (arg.attr == undefined) ? "inCheck" : arg.attr;
@@ -22,7 +22,7 @@ function Gocheck(arg) {
     this.ajaxMethods=arg.ajaxMethods;
     if (this.ajaxMethods == undefined) {
         throw new Error("'ajaxMethods' is not defined");
-    }
+    };
 
     //分部验证ajax
     this.ajaxStepCheck = arg.ajaxStepCheck;
@@ -32,8 +32,8 @@ function Gocheck(arg) {
                      return true;//存在
                  } else {
                      return false;//不存在
-                 }
-             }
+                 };
+             };
          };
 
     //检测正则定义
@@ -45,13 +45,13 @@ function Gocheck(arg) {
                         return { r: definReg[regName].r, t: definReg[regName].t };
                     } else {
                         throw new Error("'" + regName + "' define the error，please define r（RegExp）and t（Error message）");
-                    }
+                    };
                 } else {
                     throw new Error("'" + regName + "' is not defined");
-                }
+                };
             } else {
                 return undefined;
-            }
+            };
         };
     this.reg = {
         user: existDefinReg("user") == undefined ? { r: (/^[a-zA-Z][a-zA-Z0-9]{5,15}$/), t: "帐号为6-16位字符长度的数字和字母组合,首位必须为字母,不能有空格" } : existDefinReg("user"),
@@ -98,11 +98,11 @@ Gocheck.prototype = {
                             findIC.push({ attr: inCheck, input: inp });
                         } else {
                             throw new Error("'" + inCheck + "' This property does not exist");
-                        }
-                    }
-                }
-            }
-        }
+                        };
+                    };
+                };
+            };
+        };
         return findIC;
     },
 
@@ -113,7 +113,7 @@ Gocheck.prototype = {
         intendAttr = [];
         for (var i = 0; i < intend.length; i++) {
             intendAttr.push(intend[i].attr);
-        }
+        };
         var regSub = this.reg.other,
         regCheck = intendAttr.filter(function (val) {
             return regSub.test(val);
@@ -124,7 +124,7 @@ Gocheck.prototype = {
             throw new Error("'sumit1' or 'sumit2' should be the only one");
         } else {
             return regCheck[0];
-        }
+        };
     },
 
     //上传数据
@@ -143,39 +143,39 @@ Gocheck.prototype = {
             if (v == "") {
                 mes("帐号不能为空");
                 return;
-            }
+            };
             if (!that.reg.user.r.test(v)) {
                 mes(that.reg.user.t);
                 return;
-            }
+            };
             if (that.existAjaxSC("user")) {
                 var ajaxResult = that.ajaxStepCheck.user(v);
                 if (!ajaxResult[0]) {
                     mes(ajaxResult[1]);
                     return;
-                }
-            }  
+                };
+            };
             if(that.reg.mesSubmit1.test(String(mes))){
                 mes("");
-            }
+            };
             that.result += "user:\""+v+"\",";
         },
         name: function (v, that, mes) {
             if (v == "") {
                 mes("请输入真实姓名");
                 return;
-            }
+            };
             if (!that.reg.name.r.test(v)) {
                 mes(that.reg.name.t);
                 return;
-            }
+            };
             if (that.existAjaxSC("name")) {
                 var ajaxResult = that.ajaxStepCheck.name(v);
                 if (!ajaxResult[0]) {
                     mes(ajaxResult[1]);
                     return;
-                }
-            }
+                };
+            };
             if(that.reg.mesSubmit1.test(String(mes))){
                 mes("");
             }
@@ -185,27 +185,27 @@ Gocheck.prototype = {
             if (v == "") {
                 mes("请输入登录密码");
                 return;
-            }
+            };
             if (v.length < 6) {
                 mes("密码长度至少为6位");
                 return;
-            }
+            };
             if (that.reg.password != undefined) {
                 if (!that.reg.password.r.test(v)) {
                     mes(that.reg.password.t);
                     return;
-                }
-            }
+                };
+            };
             if (that.existAjaxSC("password")) {
                 var ajaxResult = that.ajaxStepCheck.password(v);
                 if (!ajaxResult[0]) {
                     mes(ajaxResult[1]);
                     return;
-                }
-            }
+                };
+            };
             if(that.reg.mesSubmit1.test(String(mes))){
                 mes("");
-            }
+            };
             that.result += "password:\"" + v + "\",";
         },
         againpw: function (v, inpB, that, mes) {
@@ -213,61 +213,61 @@ Gocheck.prototype = {
             if (v == "") {
                 mes("请确认您的密码");
                 return;
-            }
+            };
             if (v != b) {
                 mes("两次输入的密码不一致");
                 return;
-            }
+            };
             if (that.existAjaxSC("againpw")) {
                 var ajaxResult = that.ajaxStepCheck.againpw(v);
                 if (!ajaxResult[0]) {
                     mes(ajaxResult[1]);
                     return;
-                }
-            }
+                };
+            };
             if(that.reg.mesSubmit1.test(String(mes))){
                 mes("");
-            }
+            };
             that.result += "againpw:\"" + v + "\",";
         },
         vercode: function (v, that, mes) {
             if (v == "") {
                 mes("请输入验证码");
                 return;
-            }
+            };
             if (that.reg.vercode != undefined) {
                 if (!that.reg.vercode.r.test(v)) {
                     mes(that.reg.vercode.t);
                     return;
-                }
-            }
+                };
+            };
             if (that.existAjaxSC("vercode")) {
                 var ajaxResult = that.ajaxStepCheck.vercode(v);
                 if (!ajaxResult[0]) {
                     mes(ajaxResult[1]);
                     return;
-                }
-            }
+                };
+            };
             if(that.reg.mesSubmit1.test(String(mes))){
                 mes("");
-            }
+            };
             that.result+="vercode:\""+v+"\",";
         },
         email:function(v, that, mes){
             if(!that.reg.email.r.test(v) && v!=""){
                 mes(that.reg.email.t);
                 return;
-            }
+            };
             if (that.existAjaxSC("email")) {
                 var ajaxResult = that.ajaxStepCheck.email(v);
                 if (!ajaxResult[0]) {
                     mes(ajaxResult[1]);
                     return;
-                }
-            }
+                };
+            };
             if(that.reg.mesSubmit1.test(String(mes))){
                 mes("");
-            }
+            };
             that.result += "email:\"" + v + "\",";
 
         },
@@ -275,17 +275,17 @@ Gocheck.prototype = {
             if(!that.reg.phone.r.test(v) && v!=""){
                 mes(that.reg.phone.t);
                 return;
-            }
+            };
             if (that.existAjaxSC("phone")) {
                 var ajaxResult = that.ajaxStepCheck.phone(v);
                 if (!ajaxResult[0]) {
                     mes(ajaxResult[1]);
                     return;
-                }
-            }
+                };
+            };
             if(that.reg.mesSubmit1.test(String(mes))){
                 mes("");
-            }
+            };
             that.result += "phone:\"" + v + "\",";
         },
         //验证机制一：分部验证
@@ -294,23 +294,22 @@ Gocheck.prototype = {
                 for(var i=0;i<input.length-1;i++){
                     if(!that.reg.other.test(input[i].attr)){
                         input[i].input.value="";
-                    }
-                } 
-            }
+                    };
+                };
+            };
            
             if (that.result != "") {
                 var result = that.result.substring(0,that.result.length-1).split(",");
-                console.log(result);
                 if (result.length == input.length-1) {
                     that.upload(that.result);
                 } else {
                     that.err(input, "您输入的信息有误，请检查");
                     clearForm();
-                }
+                };
             } else {
                 that.err(input, "您没有填写任何信息");
                 clearForm();
-            }
+            };
               clearResult();
         },
         //验证机制二：一次验证
@@ -318,7 +317,7 @@ Gocheck.prototype = {
             function checkAll(checkRes) {
                 function mes(m) {
                     that.result+=m+",";
-                }
+                };
                 for (var i in input) {
                     var att = input[i].attr;
                     var inp = input[i].input;
@@ -329,8 +328,8 @@ Gocheck.prototype = {
                     } else if (att != "submit2") {
                         // normal input
                         that.checkMethods[att](inp.value, that, mes);
-                    }
-                }
+                    };
+                };
                 checkRes();
             }
             function Res() {
@@ -339,19 +338,19 @@ Gocheck.prototype = {
                 for (var i = 0; i < result.length; i++) {
                     if (!that.reg.trueResult.test(result[i])){
                         errmes += result[i] + "!!!  ";
-                    }
-                }
+                    };
+                };
                 if (errmes) {
                     var e = errmes.split("  ");
                     if (e.length >= input.length) {
                         that.err(input, "您输入的信息有误，请检查!!!");
                     } else {
                         that.err(input, errmes);
-                    }
+                    };
                 } else {
                     that.upload(that.result);
-                }
-            }
+                };
+            };
             checkAll(Res);
             clearResult();   
         }
@@ -365,13 +364,13 @@ Gocheck.prototype = {
         attr = input[index].attr;
         function mes(m) {
             that.err(inp, m);
-        }
+        };
         //again password
         if (!isNaN(indexB)) {
             inp2 = input[indexB].input;
             inp.addEventListener(event, function () {
                 checkFun[attr](inp.value, inp2, that, mes);
-            }, false)
+            }, false);
         } else {
             inp.addEventListener(event, function () {
                 // submit
@@ -379,13 +378,13 @@ Gocheck.prototype = {
                     that.data = checkFun[attr](input, index, that, function(){
                         that.result="";
                     });
-                }
+                };
                 // normal input
                 if (event == "blur") {
                     checkFun[attr](inp.value, that, mes);
-                }
-            }, false)
-        }
+                };
+            }, false);
+        };
     },
 
     //绑定对应检测方法
@@ -399,7 +398,7 @@ Gocheck.prototype = {
             // 检测确认密码前是否是密码
             if (att == "againpw" && intend[i - 1].attr != "password") {
                 throw new Error("The password should be a before enter the password again(输入密码应在再次输入密码的前一个)");
-            }
+            };
             // submit
             if (that.reg.other.test(att)) {
                 that.bindEvent("click", i, intend);
@@ -413,11 +412,11 @@ Gocheck.prototype = {
                     } else {
                         // normal input
                         that.bindEvent("blur", i, intend);
-                    }
-                }
-            }
-        }
-    }
+                    };
+                };
+            };
+        };
+    };
 
 }
 
