@@ -1,4 +1,4 @@
-﻿//包含所有需要验证的input和提交按钮的父级元素id字符串（必传）
+//包含所有需要验证的input和提交按钮的父级元素id字符串（必传）
 el："test" 
 
 //传入验证后输出错误信息的窗口方法（必传）
@@ -59,7 +59,7 @@ var test=new Gocheck({
 })
 test.bindCheck();
 
-//example2：分部验证（适用于定位每个出错信息输出位置）
+//example2：分步验证（适用于定位每个出错信息输出位置）
 var test=new Gocheck({
 	el:"",
 	popError:function (input,text) {
@@ -89,10 +89,7 @@ var test=new Gocheck({
 test.bindCheck();
 
 //上述举例中，实例化后，可以通过以下代码进一步查看插件详细信息
-test.version //检测插件版本号
-test.developer //检测插件开发者
-test.checkMethods  //查看插件有哪些验证API
-test.bindCheck  //开始执行检测
+
 
 /*
  *插件具有完善的报错信息
