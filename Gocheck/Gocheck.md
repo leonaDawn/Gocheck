@@ -4,7 +4,7 @@ My web development projects
 <h5>插件具有完善的报错信息，如您为开发者，不推荐使用min</h5>
 <ol>
  <li>Gocheck-form-v0.1.js &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--开发者版本</li>
- <li>Gocheck-form-v0.1-min.js &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--min版本</li>
+ <li>Gocheck-form-v0.1-min.js &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--min版本（存在错误，暂不提供）</li>
  <li>onlyCheck.html &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--统一点击提交时一步验证演示文档</li>
  <li>stepCheck.html &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--分步验证演示文档</li>
  <li>详细使用文档.js &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--详细参数接口使用说明文档</li>
