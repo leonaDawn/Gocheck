@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>【演示文档】验证系统</title>
+	<link rel="stylesheet" type="text/css" href="/demo-v0.2/css.css">
+	<script type="text/javascript" src="Gocheck-form-v0.2.js"></script>
+</head>
+<body>
+	<ul id="testInput">
+		<li><label>用户名：</label><input type="text" inCheck="user" value="test001" /></li>
+		<li><label>真实姓名：</label><input type="text" inCheck="name" value="雷欧娜" /></li>
+		<li><label>登陆密码：</label><input type="password" inCheck="password" value="123456" /></li>
+		<li><label>确认密码：</label><input type="password" inCheck="againpw" value="123456" /></li>
+		<li><label>E-mail：</label><input type="text" inCheck="email" /></li>
+		<li><label>手机号码：</label><input type="text" inCheck="phone" /></li>
+		<li class="vcode"><label>验证码：</label><input type="text" inCheck="vercode" /><img src="" alt="8855"></li>
+		<li class="submit"><input type="button" value="注册" onclick="check()" /></li>
+	</ul>
+	<script type="text/javascript">
+		 var test = new Gocheck('testInput');
+		 function check () {
+		 		var result = test.checkStart()
+		 		if (result) alert(result)
+		 }
+	</script>
+</body>
+</html>

@@ -368,11 +368,12 @@ Gocheck.prototype = {
         //again password
         if (!isNaN(indexB)) {
             inp2 = input[indexB].input;
-            inp.addEventListener(event, function () {
+            inp.addEventListener(event, function (e) {
                 checkFun[attr](inp.value, inp2, that, mes);
+                e.stopPropagation();
             }, false);
         } else {
-            inp.addEventListener(event, function () {
+            inp.addEventListener(event, function (e) {
                 // submit
                 if (event == "click") {
                     that.data = checkFun[attr](input, index, that, function(){
@@ -382,6 +383,7 @@ Gocheck.prototype = {
                 // normal input
                 if (event == "blur") {
                     checkFun[attr](inp.value, that, mes);
+                    e.stopPropagation();
                 };
             }, false);
         };
@@ -416,7 +418,7 @@ Gocheck.prototype = {
                 };
             };
         };
-    };
+    }
 
 }
 
