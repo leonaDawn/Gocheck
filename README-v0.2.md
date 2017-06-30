@@ -7,16 +7,16 @@ My web development projects
 <h4>使用方法：</h4>
   1、html布局
 <pre>
- <ul id="testInput">
-	<li><label>用户名：</label><input type="text" inCheck="user" /></li>
-	<li><label>真实姓名：</label><input type="text" inCheck="name" /></li>
-	<li><label>登陆密码：</label><input type="password" inCheck="password" /></li>
-	<li><label>确认密码：</label><input type="password" inCheck="againpw" /></li>
-	<li><label>E-mail：</label><input type="text" inCheck="email" /></li>
-	<li><label>手机号码：</label><input type="text" inCheck="phone" /></li>
-	<li class="vcode"><label>验证码：</label><p><input type="text" inCheck="vercode" /><img src="" alt="8855"></span></p></li>
-	<li class="submit"><input type="button" value="注册" onclick="check()" /></li>
- </ul>
+ &lt;ul id=&quot;testInput&quot;&gt;
+	&lt;li&gt;&lt;label&gt;用户名：&lt;/label&gt;&lt;input type=&quot;text&quot; inCheck=&quot;user&quot; /&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;label&gt;真实姓名：&lt;/label&gt;&lt;input type=&quot;text&quot; inCheck=&quot;name&quot; /&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;label&gt;登陆密码：&lt;/label&gt;&lt;input type=&quot;password&quot; inCheck=&quot;password&quot; /&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;label&gt;确认密码：&lt;/label&gt;&lt;input type=&quot;password&quot; inCheck=&quot;againpw&quot; /&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;label&gt;E-mail：&lt;/label&gt;&lt;input type=&quot;text&quot; inCheck=&quot;email&quot; /&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;label&gt;手机号码：&lt;/label&gt;&lt;input type=&quot;text&quot; inCheck=&quot;phone&quot; /&gt;&lt;/li&gt;
+	&lt;li class=&quot;vcode&quot;&gt;&lt;label&gt;验证码：&lt;/label&gt;&lt;p&gt;&lt;input type=&quot;text&quot; inCheck=&quot;vercode&quot; /&gt;&lt;img src=&quot;&quot; alt=&quot;8855&quot;&gt;&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;
+	&lt;li class=&quot;submit&quot;&gt;&lt;input type=&quot;button&quot; value=&quot;注册&quot; onclick=&quot;check()&quot; /&gt;&lt;/li&gt;
+ &lt;/ul&gt;
 </pre>
 
 2、Js使用
