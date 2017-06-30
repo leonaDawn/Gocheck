@@ -8,14 +8,14 @@ My web development projects
   1、html布局
 <pre>
  <ul id="testInput">
-		<li><label>用户名：</label><input type="text" inCheck="user" /></li>
-		<li><label>真实姓名：</label><input type="text" inCheck="name" /></li>
-		<li><label>登陆密码：</label><input type="password" inCheck="password" /></li>
-		<li><label>确认密码：</label><input type="password" inCheck="againpw" /></li>
-		<li><label>E-mail：</label><input type="text" inCheck="email" /></li>
-		<li><label>手机号码：</label><input type="text" inCheck="phone" /></li>
-		<li class="vcode"><label>验证码：</label><p><input type="text" inCheck="vercode" /><img src="" alt="8855"></span></p></li>
-		<li class="submit"><input type="button" value="注册" onclick="check()" /></li>
+	<li><label>用户名：</label><input type="text" inCheck="user" /></li>
+	<li><label>真实姓名：</label><input type="text" inCheck="name" /></li>
+	<li><label>登陆密码：</label><input type="password" inCheck="password" /></li>
+	<li><label>确认密码：</label><input type="password" inCheck="againpw" /></li>
+	<li><label>E-mail：</label><input type="text" inCheck="email" /></li>
+	<li><label>手机号码：</label><input type="text" inCheck="phone" /></li>
+	<li class="vcode"><label>验证码：</label><p><input type="text" inCheck="vercode" /><img src="" alt="8855"></span></p></li>
+	<li class="submit"><input type="button" value="注册" onclick="check()" /></li>
  </ul>
 </pre>
 
@@ -24,15 +24,14 @@ My web development projects
  <pre>
 //example：（default）
     var test = new Gocheck("testInput")
-
-		function check () {
-			var result = test.ErrorInfo // 获取错误信息
-			if (result) {
-				alert(result)
-			} else {
-				var info = test.PassInfo // 获取通过信息
-			}
+	function check () {
+		var result = test.ErrorInfo // 获取错误信息
+		if (result) {
+			alert(result)
+		} else {
+			var info = test.PassInfo // 获取通过信息
 		}
+	}
  </pre>
  
  <pre>
@@ -43,14 +42,14 @@ My web development projects
       canNull: ['phone','email'] // 数组类型，允许留空的项，默认为 ‘null’
     })
 
-		function check () {
-			var result = test.ErrorInfo // 获取错误信息
-			if (result) {
-				alert(result)
-			} else {
-				var info = test.PassInfo // 获取通过信息
-			}
-		}
+    function check () {
+	var result = test.ErrorInfo // 获取错误信息
+	if (result) {
+		alert(result)
+	} else {
+		var info = test.PassInfo // 获取通过信息
+	}
+    }
  </pre>
  
 <h4>插件详细信息：</h4>
