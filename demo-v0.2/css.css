@@ -1,0 +1,13 @@
+*{margin: 0;padding: 0;}
+body{ width: 100%； height: 100%; background-color: #282B29; }
+ul,li{list-style: none;}
+#testInput{ margin-top: 5%; width:100%; height:100%; }
+#testInput li{ margin: 0 auto; margin-bottom: 20px; width: 430px; height: 30px; line-height: 30px; font-size: 18px; color: #14DDF7; }
+#testInput li label{ float: left; }
+#testInput li input{ float: right; padding: 0 10px; width: 300px; height: 100%; background: #134C56; border: 1px solid #14DDF7; color: #ffffff; font-size: 16px; }
+#testInput li.submit { text-align: center; }
+#testInput li.submit input{ float: none; margin-left:20%;  width: 200px; font-size: 18px; color: #f2f2f2; }
+#testInput li.submit input:hover{ background:#1BB4BF; }
+#testInput li.vcode p { float: right; width: 320px; height: 100%; line-height: 30px;  }
+#testInput li.vcode p input{ float: left; vertical-align: middle; width: 200px; }
+#testInput li.vcode p img{ float: right; vertical-align: middle; width: 95px; height: 100%; text-align: center; background: #251515; border: none; }

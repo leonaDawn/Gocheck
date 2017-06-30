@@ -2,27 +2,11 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>【演示文档】统一点击后一次验证{inCheck="submit2"}</title>
-	<style type="text/css">
-		*{margin: 0;padding: 0;}
-		body{ width: 100%； height: 100%; background-color: #282B29; }
-		ul,li{list-style: none;}
-		#inCheckLoad{display:none; position:absolute; width:100%; height:100%; background:#000000; opacity:0.5; font-size:18px; text-align: center; line-height: 350px;}
-		#testInput{ margin-top: 5%; width:100%; height:100%; }
-		#testInput li{ margin: 0 auto; margin-bottom: 20px; width: 430px; height: 30px; line-height: 30px; font-size: 18px; color: #14DDF7; }
-		#testInput li label{ float: left; }
-		#testInput li input{ float: right; padding: 0 10px; width: 300px; height: 100%; background: #134C56; border: 1px solid #14DDF7; color: #ffffff; font-size: 16px; }
-		#testInput li.submit { text-align: center; }
-		#testInput li.submit input{ float: none; margin-left:20%;  width: 200px; font-size: 18px; color: #f2f2f2; }
-		#testInput li.submit input:hover{ background:#1BB4BF; }
-		#testInput li.vcode p { float: right; width: 320px; height: 100%; line-height: 30px;  }
-		#testInput li.vcode p input{ float: left; vertical-align: middle; width: 200px; }
-		#testInput li.vcode p img{ float: right; vertical-align: middle; width: 95px; height: 100%; text-align: center; background: #251515; border: none; }
-	</style>
-	<script type="text/javascript" src="Gocheck-form-v0.1.js"></script>
+	<title>【演示文档】验证系统</title>
+	<link rel="stylesheet" type="text/css" href="css.css">
+	<script type="text/javascript" src="Gocheck-form-v0.2.js"></script>
 </head>
 <body>
-    <!--请打开控制台查看演示文档-->
 	<ul id="testInput">
 		<li><label>用户名：</label><input type="text" inCheck="user" /></li>
 		<li><label>真实姓名：</label><input type="text" inCheck="name" /></li>
@@ -31,69 +15,19 @@
 		<li><label>E-mail：</label><input type="text" inCheck="email" /></li>
 		<li><label>手机号码：</label><input type="text" inCheck="phone" /></li>
 		<li class="vcode"><label>验证码：</label><p><input type="text" inCheck="vercode" /><img src="" alt="8855"></span></p></li>
-		<li class="submit"><input type="button" inCheck="submit2" value="注册" /></li>
+		<li class="submit"><input type="button" value="注册" onclick="check()" /></li>
 	</ul>
-	<div id="inCheckLoad">loading...</div>
 	<script type="text/javascript">
-		var test=new Gocheck({
-			el:"testInput", //传入包裹元素id
-			popError:function(input,text){
-				/*
-				 *传入弹出错误信息窗口
-				 *接收两个参数：
-				 *  1、input：需要验证和submit的所有input，button对象
-				 *  2、text：用户输入的错误的报错信息			 
-				 */
-				console.log("当前所有input集合为：");
-				console.log(input);
-				console.log("-------------------------");
+		var test = new Gocheck("testInput")
 
-				//example：
-				alert(text);
-			},
-			ajaxMethods: function (data) {
-				/*
-				 *传入用户点击注册按钮对注册信息数据处理的ajax方法
-				 *接收一个参数：
-				 *    1、data：用户输入的注册信息数据对象
-				 *参数说明：对象名与inCheck一致，如下例中所示
-				 */
-				console.log("通过前台验证后待提交后端的数据为：");
-				console.log(data);
-				console.log("-------------------------");
-
-				var userReg=/^[t|a|d][A-z]*\d*/;
-				if(userReg.test(data.user)){		
-					alert("该用户名已被注册!!")
-				}else if(data.vercode!="8855"){
-					alert("您输入的验证码有误")
-				}else{
-					alert("恭喜您，注册成功！！")
-				}
-				//example：
-				// var waitSent="";
-				//  waitSent += "user=" + data.user + "&";
-				//  waitSent += "name=" + data.name + "&";
-				//  waitSent += "pwd=" + data.password + "&";
-				//  waitSent += "pwd2=" + data.againpw + "&";
-				//  waitSent += "email=" + data.email + "&";
-				//  waitSent += "phone=" + data.phone + "&";
-				//  waitSent += "vercode=" + data.vercode;
-				// $("#inCheckLoad").stop().show();
-				// $.post("/register/registerStatus", waitSent, function (result) {
-				// 	if (result.Status) {
-				// 		window.location.href = "user_center";
-				// 	} else {
-				// 		alert(result.Msg, null);
-				// 	}
-				// });
-				// $("#inCheckLoad").stop().hide();
+		function check () {
+			var result = test.ErrorInfo
+			if (result) {
+				alert(result)
+			} else {
+				var info = test.PassInfo
 			}
-		});
-		//执行检查方法
-		test.bindCheck();
-
-		//验证AIP可以在控制台输出“test.checkMethods”查看
+		}
 	</script>
 </body>
 </html>
