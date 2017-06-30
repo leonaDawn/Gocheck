@@ -1,6 +1,6 @@
 # samllleona
 My web development projects
-<h3>Gocheck-form-v0.2 表单验证插件</h3>
+<h3>Gocheck-form-v0.1 表单验证插件</h3>
 <ol>
  <li>Gocheck-form-v0.1.js &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--开发者版本</li>
  <li>onlyCheck.html &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--统一点击提交时一步验证演示文档</li>
