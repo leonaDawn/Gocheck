@@ -1,10 +1,8 @@
 # samllleona
 My web development projects
-<h3>Gocheck-form-v0.1 表单验证插件</h3>
-<h5>插件具有完善的报错信息，如您为开发者，不推荐使用min</h5>
+<h3>Gocheck-form-v0.2 表单验证插件</h3>
 <ol>
  <li>Gocheck-form-v0.1.js &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--开发者版本</li>
- <li>Gocheck-form-v0.1-min.js &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--min版本（存在错误，暂不提供）</li>
  <li>onlyCheck.html &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--统一点击提交时一步验证演示文档</li>
  <li>stepCheck.html &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--分步验证演示文档</li>
  <li>详细使用文档.js &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--详细参数接口使用说明文档</li>
@@ -27,14 +25,14 @@ My web development projects
   &lt;li class=&quot;submit&quot;&gt;&lt;input type=&quot;button&quot; inCheck=&quot;submit2&quot; value=&quot;注册&quot; /&gt;&lt;/li&gt;
 &lt;/ul&gt;
  </pre>
- 
+
  2、Js使用
  <pre>
 //example1：一次验证（适用于弹窗）
 var test=new Gocheck({
 	el:"test",
 	popError:function (input,text) {
-		// body... 
+		// body...
 	},
 	ajaxMethods:fuction(){
 	   //返回结果为通过：[true,null]
@@ -48,7 +46,7 @@ test.bindCheck();
 var test=new Gocheck({
 	el:"test",
 	popError:function (input,text) {
-		// body... 
+		// body...
 	},
 	ajaxMethods:fuction(){
 	   //返回结果为通过：[true,null]
